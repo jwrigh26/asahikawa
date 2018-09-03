@@ -1,2 +1,2 @@
 # asahikawa
-Example pages in React
+Several exmaple pages in React.
