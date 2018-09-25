@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import styles from "styles/App.scss";
+import other from "styles/other.scss";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <p className={styles.app__intro}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <div className={other.red} />
       </div>
     );
   }
