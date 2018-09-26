@@ -1,3 +1,4 @@
+/* eslint-disable */
 const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
@@ -82,6 +83,7 @@ module.exports = {
     // for React Native Web.
     extensions: [".web.js", ".mjs", ".js", ".json", ".web.jsx", ".jsx"],
     alias: {
+      assets: path.resolve(paths.appSrc, "assets"),
       components: path.resolve(paths.appSrc, "components"),
       helpers: path.resolve(paths.appSrc, "helpers"),
       modules: path.resolve(paths.appSrc, "modules"),
@@ -155,7 +157,7 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: [/\.sass$/, /\.scss$/],
+            test: [/\.sass$/, /\.scss$/, /\.css$/],
             use: [
               require.resolve("style-loader"),
               {
@@ -168,11 +170,11 @@ module.exports = {
               },
               {
                 loader: require.resolve("sass-loader"),
-                options: {
-                  importLoaders: 1,
-                  modules: true,
-                  localIdentName: "[name]__[local]___[hash:base64:5]"
-                }
+                // options: {
+                //   importLoaders: 1,
+                //   modules: true,
+                //   localIdentName: "[name]__[local]___[hash:base64:5]"
+                // }
               },
               {
                 loader: require.resolve("postcss-loader"),
