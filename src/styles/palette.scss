@@ -1,0 +1,110 @@
+/* RGB */
+$platinum: rgba(229, 229, 229, 1);
+$desire: rgba(234, 49, 89, 1);
+$eerie_black: rgba(23, 23, 23, 1);
+$davy_grey: rgba(90, 85, 82, 1);
+$quick_silver: rgba(176, 166, 165, 1);
+$white: rgba(255, 255, 255, 1);
+$black: rgba(0, 0, 0, 1);
+
+// desire shades
+$desire-l1: rgb(253, 236, 239);
+$desire-l2: rgb(251, 217, 224);
+$desire-l3: rgb(249, 198, 209);
+$desire-l4: rgb(247, 180, 194);
+$desire-l5: rgb(245, 161, 179);
+$desire-l6: rgb(243, 142, 164);
+$desire-l7: rgb(241, 123, 149);
+$desire-l8: rgb(239, 105, 134);
+$desire-l9: rgb(237, 86, 119);
+$desire-l10: rgb(235, 67, 104);
+$desire-d1: rgb(213, 45, 81);
+$desire-d2: rgb(192, 41, 73);
+$desire-d3: rgb(171, 36, 65);
+$desire-d4: rgb(149, 32, 57);
+$desire-d5: rgb(128, 27, 49);
+$desire-d6: rgb(107, 23, 41);
+$desire-d7: rgb(86, 18, 33);
+$desire-d8: rgb(64, 14, 25);
+$desire-d9: rgb(43, 9, 17);
+$desire-d10: rgb(22, 5, 9);
+
+// Text
+$text: (
+  default: $davy_grey,
+  48: rgb(233, 233, 233),
+  50: rgb(212, 212, 212),
+  100: rgb(191, 191, 191),
+  200: rgb(170, 170, 170),
+  300: rgb(149, 149, 149),
+  400: rgb(128, 128, 128),
+  500: rgb(107, 107, 107),
+  600: rgb(86, 86, 86),
+  700: rgb(65, 65, 65),
+  800: rgb(44, 44, 44)
+);
+
+@function white($value: 1) {
+  @return rgba(255, 255, 255, $value);
+}
+
+@function black($value: 1) {
+  @return rgba(0, 0, 0, $value);
+}
+
+$accent: (
+  default: $desire,
+  48: $desire-d1,
+  50: $desire-d2,
+  100: $desire-d3,
+  200: $desire-d4,
+  300: $desire-d5,
+  400: $desire-d6,
+  500: $desire-d7,
+  600: $desire-d8,
+  700: $desire-d9,
+  800: $desire-d10
+);
+@function accent($value: "default") {
+  @return map-get($accent, $value);
+}
+
+$grey: (
+  default: #9d9d9d,
+  48: #f8f8f8,
+  50: #f7f7f7,
+  100: #ebebeb,
+  150: #e0e0e0,
+  200: #dcdcdc,
+  300: #c7c7c7,
+  400: #bfbfbf,
+  500: #9d9d9d,
+  600: #808080,
+  650: #737373,
+  655: #727272,
+  700: #6d6d6d,
+  725: #565656,
+  750: #4a4a4a,
+  800: #404040,
+  900: #2d2d2d
+);
+@function grey($value: "default") {
+  @return map-get($grey, $value);
+}
+
+$highlight: (
+  default: $desire,
+  48: $desire-l1,
+  50: $desire-l2,
+  100: $desire-l3,
+  200: $desire-l4,
+  300: $desire-l5,
+  400: $desire-l6,
+  500: $desire-l7,
+  600: $desire-l8,
+  700: $desire-l9,
+  800: $desire-l10
+);
+@function highlight($value: "default") {
+  @return map-get($highlight, $value);
+}

@@ -1,2 +1,134 @@
-$black: #000;
-$red: red;
+@import "./media.scss";
+@import "./palette.scss";
+@import "./image.scss";
+
+html,
+body,
+#root {
+  font-size: 100%;
+  line-height: 1.37;
+
+  @include mq-mobile-medium {
+    line-height: 1.25;
+  }
+
+  h1 {
+    font-size: 3em;
+    line-height: 1.05;
+
+    @include mq-tablet {
+      font-size: 2.5em;
+      line-height: 1.125;
+    }
+
+    @include mq-mobile-large {
+      font-size: 2em;
+      line-height: 1.25;
+    }
+
+    @include mq-mobile-medium {
+      font-size: 2em;
+      line-height: 1.25;
+    }
+  }
+
+  h2 {
+    font-size: 2.25em;
+    line-height: 1.25;
+
+    @include mq-tablet {
+      font-size: 2em;
+      line-height: 1.25;
+    }
+
+    @include mq-mobile-large {
+      font-size: 1.625em;
+      line-height: 1.15384615;
+    }
+
+    @include mq-mobile-medium {
+      font-size: 1.625em;
+      line-height: 1.15384615;
+    }
+  }
+
+  h3 {
+    font-size: 1.75em;
+    line-height: 1.25em;
+
+    @include mq-tablet {
+      font-size: 1.5em;
+      line-height: 1.25;
+    }
+
+    @include mq-mobile-large {
+      font-size: 1.375em;
+      line-height: 1.13636364;
+    }
+
+    @include mq-mobile-medium {
+      font-size: 1.375em;
+      line-height: 1.13636364;
+    }
+  }
+
+  h4 {
+    font-size: 1.125em;
+    line-height: 1.22222222;
+
+    @include mq-tablet {
+      font-size: 1.125em;
+      line-height: 1.22222222;
+    }
+
+    @include mq-mobile-large {
+      font-size: 1.125em;
+      line-height: 1.11111111;
+    }
+
+    @include mq-mobile-medium {
+      font-size: 1.125em;
+      line-height: 1.11111111;
+    }
+  }
+
+  blockquote {
+    font-size: 1.5em;
+    line-height: 1.45833333;
+
+    @include mq-tablet {
+      font-size: 1.5em;
+      line-height: 1.45833333;
+    }
+
+    @include mq-mobile-large {
+      font-size: 1.25em;
+      line-height: 1.25;
+    }
+
+    @include mq-mobile-medium {
+      font-size: 1.25em;
+      line-height: 1.25;
+    }
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.37;
+
+    @include mq-tablet {
+      font-size: 1em;
+      line-height: 1.37;
+    }
+
+    @include mq-mobile-large {
+      font-size: 1em;
+      line-height: 1.25;
+    }
+
+    @include mq-mobile-medium {
+      font-size: 1em;
+      line-height: 1.25;
+    }
+  }
+}

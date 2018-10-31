@@ -1,0 +1,65 @@
+$jpg: (
+  lg1x: "-lg_1x.jpg",
+  lg2x: "-lg_2x.jpg",
+  md1x: "-md_1x.jpg",
+  md2x: "-md_2x.jpg",
+  sm1x: "-sm_1x.jpg",
+  sm2x: "-sm_2x.jpg"
+);
+
+$webp: (
+  lg1x: "-lg_1x.webp",
+  lg2x: "-lg_2x.webp",
+  md1x: "-md_1x.webp",
+  md2x: "-md_2x.webp",
+  sm1x: "-sm_1x.webp",
+  sm2x: "-sm_2x.webp"
+);
+
+@function jpg($ext: "-lg_1x.jpg") {
+  @return map-get($jpg, $ext);
+}
+
+@function webp($ext: "-lg_1x.webp") {
+  @return map-get($webp, $ext);
+}
+
+@mixin picture($image, $width: 100vw, $height: 500px) {
+  width: $width;
+  height: $height;
+  background-size: cover;
+  background-position: center;
+
+  background-image: url(#{$image}#{jpg(lg1x)});
+  background-image: -webkit-image-set(
+    url(#{$image}#{webp(lg1x)}) 1x,
+    url(#{$image}#{webp(lg2x)}) 2x
+  );
+  background-image: image-set(
+    url(#{$image}#{jpg(lg1x)}) 1x,
+    url(#{$image}#{jpg(lg2x)}) 2x
+  );
+
+  @media (max-width: 900px) {
+    background-image: url(#{$image}#{jpg(md1x)});
+    background-image: -webkit-image-set(
+      url(#{$image}#{webp(md1x)}) 1x,
+      url(#{$image}#{webp(md2x)}) 2x
+    );
+    background-image: image-set(
+      url(#{$image}#{jpg(md1x)}) 1x,
+      url(#{$image}#{jpg(md2x)}) 2x
+    );
+  }
+  @media (max-width: 600px) {
+    background-image: url(#{$image}#{jpg(sm1x)});
+    background-image: -webkit-image-set(
+      url(#{$image}#{webp(sm1x)}) 1x,
+      url(#{$image}#{webp(sm2x)}) 2x
+    );
+    background-image: image-set(
+      url(#{$image}#{jpg(sm1x)}) 1x,
+      url(#{$image}#{jpg(sm2x)}) 2x
+    );
+  }
+}

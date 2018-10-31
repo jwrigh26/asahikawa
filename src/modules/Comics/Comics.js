@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Comics = props => {
+const Comics = () => {
   return (
     <div>
       <h1>Comics</h1>

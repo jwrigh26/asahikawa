@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Router from 'components/router/Router';
-import Content from 'components/content/Content';
-import styles from 'styles/app.scss';
-import other from 'styles/other.scss';
+import Router from 'components/Router/Router';
+import Content from 'components/Content/Content';
+import css from 'styles/app.scss';
 
 import Icon from 'components/Icon/Icon';
 import alien from 'assets/icons/alien.json';
@@ -16,18 +15,9 @@ class App extends Component {
     return (
       <Router
         render={router => (
-          <div className={styles.wrapper}>
-            <header className={styles.header} router={router}>
-              Header
-              <Icon
-                path={alien.path}
-                label={alien.label}
-                fill={'#fff'}
-                styles={[other.green, other.padding]}
-              />
-            </header>
+          <div className={css.wrapper}>
             <Content router={router} />
-            <footer className={styles.footer} router={router}>
+            <footer className={css.footer} router={router}>
               Footer
             </footer>
           </div>

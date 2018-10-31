@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import PropTypes from 'prop-types';
-import {v5} from 'uuid';
+// import {v5} from 'uuid';
 
 // import Routes
 import Comics from '../../modules/Comics/Comics';

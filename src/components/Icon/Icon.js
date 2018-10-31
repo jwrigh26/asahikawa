@@ -9,7 +9,7 @@ const Icon = ({fill, height, label, path, styles, width}) => {
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      viewBox={'0 0 100% 100%'}
+      viewBox={`0 0 ${width} ${height}`}
       aria-labelledby="title"
     >
       <title>{label}</title>
@@ -39,3 +39,15 @@ Icon.propTypes = {
 };
 
 export default Icon;
+
+/*
+
+<header className={styles.header} router={router}>
+              Header
+              <Icon
+                path={alien.path}
+                label={alien.label}
+                fill={'#fff'}
+                styles={[other.green, other.padding]}
+              />
+            </header>*/

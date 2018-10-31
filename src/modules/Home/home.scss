@@ -1,0 +1,49 @@
+@import "styles/global.scss";
+
+.home {
+  align-items: stretch;
+  display: grid;
+  font-size: 1rem;
+  justify-content: stretch;
+  grid-template-areas:
+    "header"
+    "comic"
+    "art"
+    "social"
+    "shop";
+  min-height: 100%;
+  width: 100%;
+  background: orange;
+}
+
+.header {
+  grid-area: header;
+  height: 28em;
+  background: white();
+
+  @include picture("assets/images/suika");
+}
+
+.comic {
+  grid-area: comic;
+  height: 24em;
+  background: orchid;
+}
+
+.art {
+  grid-area: art;
+  height: 24em;
+  background: greenyellow;
+}
+
+.social {
+  grid-area: social;
+  height: 20em;
+  background: blue;
+}
+
+.shop {
+  grid-area: comic;
+  height: 20em;
+  background: peru;
+}

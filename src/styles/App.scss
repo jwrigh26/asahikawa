@@ -1,13 +1,9 @@
+@import "./global.scss";
+
 html,
 body,
 #root {
   height: 100%;
-}
-
-.header {
-  grid-area: header;
-  background: blue;
-  color: white;
 }
 
 .content {
@@ -22,11 +18,10 @@ body,
 }
 
 .wrapper {
-  min-height: 100%;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
-    "header"
     "content"
     "footer";
+  min-height: 100%;
 }

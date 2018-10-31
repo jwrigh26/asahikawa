@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StoryBoards = props => {
+const StoryBoards = () => {
   return (
     <div>
       <h1>Story Boards</h1>
