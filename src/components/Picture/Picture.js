@@ -69,10 +69,10 @@ const renderImage = image => {
 const Picture = ({image}) => {
   return (
     <picture className={css.picture}>
-      {renderWebpSource(image, 'lg', 900)}
-      {renderWebpSource(image, 'md', 601)}
+      {renderWebpSource(image, 'lg', 901)}
+      {renderWebpSource('suika', 'md', 601)}
       {renderWebpSource(image)}
-      {renderJpgSource(image, 'lg', 900)}
+      {renderJpgSource(image, 'lg', 901)}
       {renderJpgSource(image, 'md', 601)}
       {renderJpgSource(image)}
       {renderImage(image)}

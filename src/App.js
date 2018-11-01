@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Router from 'components/Router/Router';
+import Navigation from 'components/Navigation/Navigation';
 import Content from 'components/Content/Content';
 import css from 'styles/app.scss';
 
@@ -13,11 +13,11 @@ class App extends Component {
 
   render() {
     return (
-      <Router
-        render={router => (
+      <Navigation
+        render={navigation => (
           <div className={css.wrapper}>
-            <Content router={router} />
-            <footer className={css.footer} router={router}>
+            <Content navigation={navigation} />
+            <footer className={css.footer} navigation={navigation}>
               Footer
             </footer>
           </div>
