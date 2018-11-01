@@ -16,34 +16,40 @@
   background: orange;
 }
 
+.bg {
+  @include picture("assets/images/neptune_03");
+}
+
 .header {
   grid-area: header;
-  height: 28em;
-  background: white();
-
-  @include picture("assets/images/neptune_03");
+  height: 2em;
+  background: black();
 }
 
 .comic {
   grid-area: comic;
-  height: 24em;
-  background: orchid;
+  height: auto;
+  background: red;
+  overflow: hidden;
 }
 
 .art {
   grid-area: art;
-  height: 24em;
-  background: greenyellow;
+  height: auto;
+  background: green;
+  overflow: hidden;
 }
 
 .social {
   grid-area: social;
-  height: 20em;
-  background: blue;
+  height: 2em;
+  background: gray;
+  overflow: hidden;
 }
 
 .shop {
   grid-area: comic;
-  height: 20em;
+  height: 2em;
   background: peru;
+  overflow: hidden;
 }
