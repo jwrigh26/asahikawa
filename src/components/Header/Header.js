@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {
+  getDrawerPosition,
   mqMobileLarge,
   createMediaQueries,
   onBreakPointChange,
@@ -8,6 +9,7 @@ import {
 } from './header.helper';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Drawer from './Drawer';
 import menu from 'assets/icons/menu.json';
 import css from './header.scss';
 
@@ -36,6 +38,11 @@ class Header extends Component {
     removeMediQueries(this.mediaQueryState.queries, this.mediaQueryState.listener);
   }
 
+  handleDrawer = () => {
+    const newPos = getDrawerPosition(this.state.drawerPosition);
+    this.setDrawerPosition(newPos);
+  };
+
   setActiveBreakPoint = breakPoint => {
     this.setState(() => ({
       activeBreakPoint: breakPoint,
@@ -48,27 +55,31 @@ class Header extends Component {
     }));
   };
 
-  rednerDrawer = () => {
-    console.log('Render Drawer');
+  renderMobileNavigation = () => {
     return (
-      <Fragment>
-        <span>Button</span>
-        <Button>
-          <Icon svg={menu} className={[css.menu]} />
-        </Button>
-      </Fragment>
+      <Button onClick={this.handleDrawer}>
+        <Icon svg={menu} className={[css.menuButton]} />
+      </Button>
     );
   };
 
   render() {
+    const {drawerPosition} = this.state;
     const {className} = this.props;
     const {breakPoint: activeBreakPoint} = this.state.activeBreakPoint;
     const {breakPoint: mobileBreakPoint} = mqMobileLarge;
     return (
-      <div className={[css.header, ...className].join(' ')}>
-        {activeBreakPoint > mobileBreakPoint && <Fragment />}
-        {activeBreakPoint <= mobileBreakPoint && <Fragment>{this.rednerDrawer()}</Fragment>}
-      </div>
+      <Fragment>
+        <nav className={[css.navigation, ...className].join(' ')}>
+          {activeBreakPoint > mobileBreakPoint && <Fragment />}
+          {activeBreakPoint <= mobileBreakPoint && (
+            <Fragment>{this.renderMobileNavigation()}</Fragment>
+          )}
+        </nav>
+        {activeBreakPoint <= mobileBreakPoint && (
+          <Drawer drawerPosition={drawerPosition} handleDrawer={this.handleDrawer} />
+        )}
+      </Fragment>
     );
   }
 }

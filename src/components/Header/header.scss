@@ -1,6 +1,6 @@
 @import "styles/global.scss";
 
-.header {
+.navigation {
   align-items: center;
   display: flex;
   height: 3rem;
@@ -11,9 +11,6 @@
   top: 0;
   width: 100vw;
   background-color: aqua;
-  /* This is needed for PC chrome */
-  margin-right: -50px;
-  padding-right: 50px;
 
   &_mobile {
     background-color: acent();
@@ -21,7 +18,7 @@
   }
 }
 
-.menu {
+.menuButton {
   padding: 0 2rem 0 1rem;
   height: 3rem;
   background: pink;

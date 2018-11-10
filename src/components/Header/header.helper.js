@@ -1,18 +1,11 @@
-export const drawerPosition = {
-  CLOSE: 0,
-  OPEN: 1,
-  HIDDEN: 2,
+export const drawerState = {
+  close: 0,
+  open: 1,
 };
 
-export const layout = {
-  CENTER: 1,
-  LEADING: 0,
-  TRAILING: 2,
-};
+export const isDrawerOpen = pos => (pos === drawerState.open ? true : false);
 
-export const isDrawerOpen = pos => (pos === drawerPosition.OPEN ? true : false);
-
-export const isDrawerHidden = pos => (pos === drawerPosition.HIDDEN ? true : false);
+export const getDrawerPosition = pos => (isDrawerOpen(pos) ? drawerState.close : drawerState.open);
 
 export const mqMobileMed = {
   breakPoint: 424,

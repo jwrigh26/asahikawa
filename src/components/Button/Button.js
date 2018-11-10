@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import css from './button.scss';
 
 const handleClick = callback => () => {
-  console.log('Button clicked');
   return callback();
 };
 
