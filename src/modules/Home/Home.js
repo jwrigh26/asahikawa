@@ -8,7 +8,7 @@ const Home = props => {
     <div className={css.wrapper}>
       <div className={css.header} />
       <div className={css.comic}>
-        <Picture image={'neptune_02'} />
+        <Picture image={'koen_asobi'} />
       </div>
       <div className={css.art}>
         <Picture image={'neptune_03'} />

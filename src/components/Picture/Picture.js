@@ -53,13 +53,14 @@ const renderImageSource = (image, size, width, ext) => {
 
 const renderImage = (image, className) => {
   const srcSet = haveImageSet(image) ? getImageSet(image) : null;
+  const sizes = '(max-width: 600px) 600px, (max-width: 900px) 900px, 100vw';
   const innerProps = {
     className: [css.img, ...className].join(' '),
     src: req(`./${image}.jpg`),
     type: 'image/jpeg',
     alt: `image-${image}`,
   };
-  return srcSet ? <img srcSet={srcSet} {...innerProps} /> : <img {...innerProps} />;
+  return srcSet ? <img srcSet={srcSet} sizes={sizes} {...innerProps} /> : <img {...innerProps} />;
 };
 
 // convenience methods for jpg and webp
