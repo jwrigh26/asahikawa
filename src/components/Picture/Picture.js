@@ -4,88 +4,106 @@ import css from './picture.scss';
 
 const req = require.context('assets/images', true);
 
-const renderWebpSource = (image, size, width) => {
+const haveImageSource = (image, size = 'sm', ext) => {
+  try {
+    req(`./${image}-${size}_1x.${ext}`);
+    req(`./${image}-${size}_2x.${ext}`);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+const haveImageSet = image => {
+  try {
+    req(`./${image}-sm_1x.jpg`);
+    req(`./${image}-md_1x.jpg`);
+    req(`./${image}-lg_1x.jpg`);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+const getImageSet = image => {
+  const src1 = req(`./${image}-sm_1x.jpg`);
+  const src2 = req(`./${image}-md_1x.jpg`);
+  const src3 = req(`./${image}-lg_1x.jpg`);
+  return `${src1} 600w, ${src2} 900w, ${src3} 1440w`;
+};
+
+const renderImageSource = (image, size, width, ext) => {
   if (size && width) {
-    try {
-      const src1 = req(`./${image}-${size}_1x.webp`);
-      const src2 = req(`./${image}-${size}_2x.webp`);
-      return (
-        <source
-          media={`(min-width: ${width}px)`}
-          srcSet={`${src1} 1x, ${src2} 2x`}
-          type="image/webp"
-          alt={`image-${image}`}
-        />
-      );
-    } catch (error) {
-      const orig = req(`./${image}.webp`);
-      return <source srcSet={`${orig}`} type="image/webp" alt={`${error}`} />;
-    }
+    const src1 = req(`./${image}-${size}_1x.${ext}`);
+    const src2 = req(`./${image}-${size}_2x.${ext}`);
+    return (
+      <source
+        media={`(min-width: ${width}px)`}
+        srcSet={`${src1} 1x, ${src2} 2x`}
+        type={`image/${ext}`}
+        alt={`image-${image}`}
+      />
+    );
   }
 
-  const src1 = req(`./${image}-sm_1x.webp`);
-  const src2 = req(`./${image}-sm_2x.webp`);
-  return <source srcSet={`${src1} 1x, ${src2} 2x`} type="image/webp" alt={`image-${image}`} />;
+  const src1 = req(`./${image}-sm_1x.${ext}`);
+  const src2 = req(`./${image}-sm_2x.${ext}`);
+  return <source srcSet={`${src1} 1x, ${src2} 2x`} type={`image/${ext}`} alt={`image-${image}`} />;
+};
+
+const renderImage = (image, className) => {
+  const srcSet = haveImageSet(image) ? getImageSet(image) : null;
+  const innerProps = {
+    className: [css.img, ...className].join(' '),
+    src: req(`./${image}.jpg`),
+    type: 'image/jpeg',
+    alt: `image-${image}`,
+  };
+  return srcSet ? <img srcSet={srcSet} {...innerProps} /> : <img {...innerProps} />;
+};
+
+// convenience methods for jpg and webp
+
+const haveJpgSource = (image, size = 'sm') => {
+  return haveImageSource(image, size, 'jpg');
+};
+
+const haveWebpSource = (image, size = 'sm') => {
+  return haveImageSource(image, size, 'webp');
+};
+
+const renderWebpSource = (image, size, width) => {
+  return renderImageSource(image, size, width, 'webp');
 };
 
 const renderJpgSource = (image, size, width) => {
-  if (size && width) {
-    try {
-      const src1 = req(`./${image}-${size}_1x.jpg`);
-      const src2 = req(`./${image}-${size}_2x.jpg`);
-      return (
-        <source
-          media={`(min-width: ${width}px)`}
-          srcSet={`${src1} 1x, ${src2} 2x`}
-          type="image/jpeg"
-          alt={`image-${image}`}
-        />
-      );
-    } catch (error) {
-      const orig = req(`./${image}.jpg`);
-      return <source srcSet={`${orig}`} type="image/jpeg" alt={`${error}`} />;
-    }
-  }
-
-  const src1 = req(`./${image}-sm_1x.jpg`);
-  const src2 = req(`./${image}-sm_2x.jpg`);
-  return <source srcSet={`${src1} 1x, ${src2} 2x`} type="image/jpeg" alt={`image-${image}`} />;
+  return renderImageSource(image, size, width, 'jpg');
 };
 
-const renderImage = image => {
-  try {
-    const src1 = req(`./${image}-sm_1x.jpg`);
-    const src2 = req(`./${image}-md_1x.jpg`);
-    const src3 = req(`./${image}-lg_1x.jpg`);
-    const srcSet = `${src1} 600w, ${src2} 900w, ${src3} 1440w`;
-    const src = src1;
-    return <img srcSet={srcSet} src={src} type="image/jpeg" alt={`image-${image}`} />;
-  } catch (error) {
-    const orig = req(`./${image}.jpg`);
-    return <img src={orig} type="image/jpeg" alt={`${error}`} />;
-  }
-};
-
-const Picture = ({image}) => {
+const Picture = ({image, className, pictureClassName}) => {
   return (
-    <picture className={css.picture}>
-      {renderWebpSource(image, 'lg', 901)}
-      {renderWebpSource('suika', 'md', 601)}
-      {renderWebpSource(image)}
-      {renderJpgSource(image, 'lg', 901)}
-      {renderJpgSource(image, 'md', 601)}
-      {renderJpgSource(image)}
-      {renderImage(image)}
+    <picture className={[css.picture, ...pictureClassName].join(' ')}>
+      {haveWebpSource(image, 'lg') && renderWebpSource(image, 'lg', 900)}
+      {haveWebpSource(image, 'md') && renderWebpSource(image, 'md', 600)}
+      {haveWebpSource(image) && renderWebpSource(image)}
+      {haveJpgSource(image, 'lg') && renderJpgSource(image, 'lg', 900)}
+      {haveJpgSource(image, 'md') && renderJpgSource(image, 'md', 600)}
+      {haveJpgSource(image) && renderJpgSource(image)}
+      {renderImage(image, className)}
     </picture>
   );
 };
 
 Picture.defaultProps = {
+  className: [],
   image: 'not_found',
+  pictureClassName: [],
 };
 
 Picture.propTypes = {
+  className: PropTypes.arrayOf(PropTypes.string).isRequired,
   image: PropTypes.string.isRequired,
+  pictureClassName: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Picture;
