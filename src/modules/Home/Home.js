@@ -5,11 +5,9 @@ import Picture from 'components/Picture/Picture';
 
 const Home = props => {
   return (
-    <div className={css.wrapper}>
+    <div className={css.home}>
       <div className={css.header} />
-      <div className={css.comic}>
-        <Picture image={'koen_asobi'} />
-      </div>
+      <div className={css.comic} />
       <div className={css.art}>
         <Picture image={'neptune_03'} />
       </div>

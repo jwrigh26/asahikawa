@@ -1,0 +1,8 @@
+@import "styles/global.scss";
+
+.footer {
+  grid-area: footer;
+  background: black();
+  color: white();
+  min-height: 16rem;
+}

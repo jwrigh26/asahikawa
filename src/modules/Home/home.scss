@@ -13,7 +13,7 @@
     "shop";
   min-height: 100%;
   width: 100%;
-  background: orange;
+  background: black();
 }
 
 .bg {
@@ -22,13 +22,14 @@
 
 .header {
   grid-area: header;
-  height: 2em;
-  background: black();
+  margin-top: 4rem;
+  height: 2erm;
+  background: lightcoral;
 }
 
 .comic {
   grid-area: comic;
-  height: auto;
+  height: 3em;
   background: red;
   overflow: hidden;
 }
@@ -42,14 +43,14 @@
 
 .social {
   grid-area: social;
-  height: 2em;
+  height: 2rem;
   background: gray;
   overflow: hidden;
 }
 
 .shop {
   grid-area: comic;
-  height: 2em;
+  height: 2rem;
   background: peru;
   overflow: hidden;
 }

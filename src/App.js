@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Navigation from 'components/Navigation/Navigation';
+import Header from 'components/Header/Header';
 import Content from 'components/Content/Content';
+import Footer from 'components/Footer/Footer';
 import css from 'styles/app.scss';
 
 import Icon from 'components/Icon/Icon';
@@ -17,9 +19,8 @@ class App extends Component {
         render={navigation => (
           <div className={css.wrapper}>
             <Content navigation={navigation} />
-            <footer className={css.footer} navigation={navigation}>
-              Footer
-            </footer>
+            <Footer navigation={navigation} />
+            <Header navigation={navigation} />
           </div>
         )}
       />
