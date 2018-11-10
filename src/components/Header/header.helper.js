@@ -14,26 +14,42 @@ export const isDrawerOpen = pos => (pos === drawerPosition.OPEN ? true : false);
 
 export const isDrawerHidden = pos => (pos === drawerPosition.HIDDEN ? true : false);
 
+export const mqMobileMed = {
+  breakPoint: 424,
+  name: 'mobile-med',
+};
+
+export const mqMobileLarge = {
+  breakPoint: 425,
+  name: 'mobile-large',
+};
+
+export const mqTablet = {
+  breakPoint: 768,
+  name: 'tablete',
+};
+
+export const mqLaptop = {
+  breakPoint: 1024,
+  name: 'laptop',
+};
+
 export const mediaQueries = [
   {
-    breakPoint: 425,
-    name: 'mobile-large',
     query: window.matchMedia('(min-width: 425px)'),
+    ...mqMobileLarge,
   },
   {
-    breakPoint: 768,
-    name: 'tablet',
     query: window.matchMedia('(min-width: 768px)'),
+    ...mqTablet,
   },
   {
-    breakPoint: 1024,
-    name: 'laptop',
     query: window.matchMedia('(min-width: 1024px)'),
+    ...mqLaptop,
   },
   {
-    breakPoint: 424,
-    name: 'mobile-med',
     query: window.matchMedia('(max-width: 424px)'),
+    ...mqMobileMed,
   },
 ];
 
@@ -42,8 +58,8 @@ export const onBreakPointChange = setActiveBreakPoint => queries => () => {
     return curr.query.matches ? curr : prev && prev.query.matches ? prev : null;
   });
   const name = activeQuery ? activeQuery.name : 'default';
-  const size = (activeQuery && activeQuery.breakPoint) || mediaQueries[3].breakPoint;
-  setActiveBreakPoint({name, size});
+  const breakPoint = (activeQuery && activeQuery.breakPoint) || mediaQueries[3].breakPoint;
+  setActiveBreakPoint({name, breakPoint});
 };
 
 export const createMediaQueries = handBreakPointChange => {

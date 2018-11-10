@@ -1,6 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {createMediaQueries, onBreakPointChange, removeMediQueries} from './header.helper';
+import {
+  mqMobileLarge,
+  createMediaQueries,
+  onBreakPointChange,
+  removeMediQueries,
+} from './header.helper';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
+import menu from 'assets/icons/menu.json';
 import css from './header.scss';
 
 class Header extends Component {
@@ -14,7 +22,7 @@ class Header extends Component {
   };
 
   state = {
-    activeBreakPoint: {name: 'default', size: null},
+    activeBreakPoint: {name: 'default', breakPoint: null},
     drawerPosition: 0,
   };
 
@@ -40,9 +48,28 @@ class Header extends Component {
     }));
   };
 
+  rednerDrawer = () => {
+    console.log('Render Drawer');
+    return (
+      <Fragment>
+        <span>Button</span>
+        <Button>
+          <Icon svg={menu} className={[css.menu]} />
+        </Button>
+      </Fragment>
+    );
+  };
+
   render() {
-    console.log('Active BreakPoint', this.state.activeBreakPoint.size);
-    return <div className={[css.header, ...this.props.className].join(' ')} />;
+    const {className} = this.props;
+    const {breakPoint: activeBreakPoint} = this.state.activeBreakPoint;
+    const {breakPoint: mobileBreakPoint} = mqMobileLarge;
+    return (
+      <div className={[css.header, ...className].join(' ')}>
+        {activeBreakPoint > mobileBreakPoint && <Fragment />}
+        {activeBreakPoint <= mobileBreakPoint && <Fragment>{this.rednerDrawer()}</Fragment>}
+      </div>
+    );
   }
 }
 

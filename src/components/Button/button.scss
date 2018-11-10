@@ -1,0 +1,55 @@
+@import "styles/global.scss";
+
+%fadeInAnim {
+  transition: opacity 200ms ease-in;
+}
+
+%fadeOutAnim {
+  transition: opacity 225ms ease-out;
+}
+
+%border {
+  border: 0;
+  border-color: none;
+  box-shadow: none;
+}
+
+.button {
+  @extend %border;
+  @extend %fadeInAnim;
+  align-items: center;
+  background-color: white();
+  cursor: pointer;
+  display: flex;
+  height: inherit;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  will-change: transform;
+  opacity: 1;
+
+  &:disabled {
+    @extend %border;
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &:hover,
+  &:focus {
+    @extend %border;
+    outline-color: transparent !important;
+  }
+
+  &:hover:not([disabled]) {
+    @extend %fadeOutAnim;
+    opacity: 0.75;
+  }
+
+  &:active:not([disabled]) {
+    @extend %border;
+    @extend %fadeInAnim;
+    outline-color: transparent !important;
+    opacity: 1;
+  }
+}

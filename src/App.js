@@ -5,9 +5,6 @@ import Content from 'components/Content/Content';
 import Footer from 'components/Footer/Footer';
 import css from 'styles/app.scss';
 
-import Icon from 'components/Icon/Icon';
-import alien from 'assets/icons/alien.json';
-
 class App extends Component {
   componentDidMount() {
     document.getElementById('root').style.height = '100%';
