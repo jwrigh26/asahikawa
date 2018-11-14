@@ -4,17 +4,18 @@ import posed from 'react-pose';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import close from 'assets/icons/close.json';
+import {drawerState, isDrawerHidden, isDrawerOpen} from './header.helper';
 import css from './drawer.scss';
 
 const Box = posed.div({
   open: {
     translateX: 0,
-    transition: {type: 'tween', duration: 225, ease: 'easeIn'},
+    transition: {type: 'tween', duration: 425, ease: 'circOut'},
   },
 
   closed: {
-    translateX: '80vw',
-    transition: {type: 'tween', duration: 225, ease: 'easeOut'},
+    translateX: '70vw',
+    transition: {type: 'tween', duration: 425, ease: 'circIn'},
   },
 });
 
@@ -23,11 +24,20 @@ const Shade = posed.div({
   closed: {opacity: 0},
 });
 
-const Drawer = ({children, drawerPosition, handleDrawer}) => {
+const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => {
+  const hidden = isDrawerHidden(drawerPosition) ? css.hidden : '';
+  const pose = isDrawerOpen(drawerPosition) ? 'open' : 'closed';
+
+  const handlePoseComplete = (pos, setPos) => () => {
+    if (!isDrawerOpen(pos)) {
+      setPos(drawerState.hidden);
+    }
+  };
+
   const renderTopNav = () => {
     return (
       <div className={css.topNav}>
-        <Button onClick={this.handlerDrawer}>
+        <Button onClick={toggleDrawer}>
           <Icon svg={close} className={[css.closeButton]} />
         </Button>
       </div>
@@ -35,10 +45,23 @@ const Drawer = ({children, drawerPosition, handleDrawer}) => {
   };
 
   return (
-    <div className={css.wrapper}>
-      <Shade key="shade" className={css.shade} />
-      <Box key="box" className={css.box}>
+    <div className={[css.wrapper, hidden].join(' ')}>
+      <Shade
+        className={[css.shade, hidden].join(' ')}
+        initialPose={'closed'}
+        key="shade"
+        onClick={toggleDrawer}
+        pose={pose}
+      />
+      <Box
+        className={[css.box, hidden].join(' ')}
+        initialPose={'closed'}
+        key="box"
+        onPoseComplete={handlePoseComplete(drawerPosition, setDrawerPosition)}
+        pose={pose}
+      >
         {renderTopNav()}
+        {children}
       </Box>
     </div>
   );
@@ -47,13 +70,15 @@ const Drawer = ({children, drawerPosition, handleDrawer}) => {
 Drawer.defaultProps = {
   children: [],
   drawerPosition: 0,
-  handleDrawer: () => {},
+  setDrawerPosition: () => {},
+  toggleDrawer: () => {},
 };
 
 Drawer.propTypes = {
   children: PropTypes.any.isRequired,
   drawerPosition: PropTypes.number.isRequired,
-  handleDrawer: PropTypes.func.isRequired,
+  setDrawerPosition: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
 };
 
 export default Drawer;

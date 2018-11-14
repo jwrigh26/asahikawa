@@ -1,11 +1,7 @@
 @import "styles/global.scss";
 
 %fadeInAnim {
-  transition: opacity 200ms ease-in;
-}
-
-%fadeOutAnim {
-  transition: opacity 200ms ease-out;
+  transition: opacity 175ms ease-in;
 }
 
 %border {
@@ -16,7 +12,6 @@
 
 .button {
   @extend %border;
-  @extend %fadeInAnim;
   align-items: center;
   background-color: white();
   cursor: pointer;
@@ -42,13 +37,11 @@
   }
 
   &:hover:not([disabled]) {
-    @extend %fadeOutAnim;
     opacity: 0.75;
   }
 
   &:active:not([disabled]) {
     @extend %border;
-    @extend %fadeInAnim;
     outline-color: transparent !important;
     opacity: 1;
   }

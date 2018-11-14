@@ -38,7 +38,7 @@ class Header extends Component {
     removeMediQueries(this.mediaQueryState.queries, this.mediaQueryState.listener);
   }
 
-  handleDrawer = () => {
+  toggleDrawer = () => {
     const newPos = getDrawerPosition(this.state.drawerPosition);
     this.setDrawerPosition(newPos);
   };
@@ -57,7 +57,7 @@ class Header extends Component {
 
   renderMobileNavigation = () => {
     return (
-      <Button onClick={this.handleDrawer}>
+      <Button onClick={this.toggleDrawer}>
         <Icon svg={menu} className={[css.menuButton]} />
       </Button>
     );
@@ -77,7 +77,11 @@ class Header extends Component {
           )}
         </nav>
         {activeBreakPoint <= mobileBreakPoint && (
-          <Drawer drawerPosition={drawerPosition} handleDrawer={this.handleDrawer} />
+          <Drawer
+            drawerPosition={drawerPosition}
+            setDrawerPosition={this.setDrawerPosition}
+            toggleDrawer={this.toggleDrawer}
+          />
         )}
       </Fragment>
     );

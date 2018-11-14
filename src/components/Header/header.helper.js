@@ -1,10 +1,11 @@
 export const drawerState = {
   close: 0,
   open: 1,
+  hidden: 2,
 };
 
 export const isDrawerOpen = pos => (pos === drawerState.open ? true : false);
-
+export const isDrawerHidden = pos => (pos === drawerState.hidden ? true : false);
 export const getDrawerPosition = pos => (isDrawerOpen(pos) ? drawerState.close : drawerState.open);
 
 export const mqMobileMed = {
