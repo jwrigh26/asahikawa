@@ -7,24 +7,25 @@
   right: 0;
   top: 0;
   flex: 1 1 100%;
-  z-index: 10001;
+  width: 100%;
+  z-index: 1000;
 }
 
 .shade {
   position: relative;
-  background: black(0.5);
+  background: white(0.7);
   height: 100vh;
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
+  width: inherit;
   will-change: transform;
 }
 
 .box {
   align-items: center;
   background: accent(50);
-  background: linear-gradient(180deg, accent(50) 0%, accent(100) 100%);
+  background: linear-gradient(180deg, grey(750) 0%, grey(800) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -32,7 +33,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 70vw;
+  width: 68vw;
   will-change: transform;
   z-index: 10002;
 }
@@ -43,16 +44,27 @@
   flex-direction: row;
   justify-content: flex-end;
   height: 3rem;
-  background: palevioletred;
   width: 100%;
 }
 
-.closeButton {
-  padding: 0 1rem;
+.close {
+  display: block;
   height: 3rem;
-  background: pink;
-  width: 2rem;
-  color: grey(900);
+  position: absolute;
+  top: 1.5rem;
+  right: 75vw;
+  width: 1.5rem;
+  z-index: 10001;
+
+  .closeButton {
+    background: transparent;
+  }
+
+  .closeIcon {
+    color: grey(900);
+    height: 3rem;
+    width: 2.2rem;
+  }
 }
 
 .hidden {
