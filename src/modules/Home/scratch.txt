@@ -1,0 +1,5 @@
+// .bg {
+//   @include picture("assets/images/neptune_03");
+// }
+
+How to add bg in css

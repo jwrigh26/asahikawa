@@ -22,14 +22,16 @@
   will-change: transform;
 }
 
-.box {
+.drawer {
   align-items: center;
   background: accent(50);
-  background: linear-gradient(180deg, grey(750) 0%, grey(800) 100%);
+  background: linear-gradient(180deg, acent(50) 0%, acent(100) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   position: absolute;
   right: 0;
   top: 0;
@@ -38,13 +40,19 @@
   z-index: 10002;
 }
 
-.topNav {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  height: 3rem;
-  width: 100%;
+.header {
+  box-sizing: border-box;
+  border: 1px solid white();
+  margin: 1rem 1rem 0 1rem;
+
+  &_after {
+    background: white();
+    background: linear-gradient(180deg, white() 0%, white(0) 100%);
+    display: block;
+    height: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: calc(100% - 2rem);
+  }
 }
 
 .close {

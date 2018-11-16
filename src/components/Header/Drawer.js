@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import posed from 'react-pose';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Picture from 'components/Picture/Picture';
 import close from 'assets/icons/close.json';
 import {drawerState, isDrawerHidden, isDrawerOpen} from './header.helper';
 import css from './drawer.scss';
@@ -53,8 +54,15 @@ const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => 
     }
   };
 
-  const renderTopNav = () => {
-    return <div className={css.topNav} />;
+  const renderHeader = () => {
+    return (
+      <Fragment>
+        <div className={css.header}>
+          <Picture image="brand/AnthonyHoldenArt_Header" />
+        </div>
+        <div className={css.header_after} />
+      </Fragment>
+    );
   };
 
   return (
@@ -67,8 +75,8 @@ const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => 
         onPoseComplete={handlePoseComplete(drawerPosition, setDrawerPosition)}
         pose={pose}
       />
-      <Box className={[css.box, hidden].join(' ')} initialPose={'closed'} key="box" pose={pose}>
-        {renderTopNav()}
+      <Box className={[css.drawer, hidden].join(' ')} initialPose={'closed'} key="box" pose={pose}>
+        {renderHeader()}
         {children}
       </Box>
       <Close

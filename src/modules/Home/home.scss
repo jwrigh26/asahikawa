@@ -19,10 +19,6 @@
   background: grey();
 }
 
-.bg {
-  @include picture("assets/images/neptune_03");
-}
-
 .header {
   grid-area: header;
   background: pink;
