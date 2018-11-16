@@ -51,11 +51,11 @@ const renderImageSource = (image, size, width, ext) => {
   return <source srcSet={`${src1} 1x, ${src2} 2x`} type={`image/${ext}`} alt={`image-${image}`} />;
 };
 
-const renderImage = (image, className) => {
+const renderImage = (image, classNames) => {
   const srcSet = haveImageSet(image) ? getImageSet(image) : null;
   const sizes = '(max-width: 600px) 600px, (max-width: 900px) 900px, 100vw';
   const innerProps = {
-    className: [css.img, ...className].join(' '),
+    className: [css.img, ...classNames].join(' '),
     src: req(`./${image}.jpg`),
     type: 'image/jpeg',
     alt: `image-${image}`,
@@ -81,30 +81,30 @@ const renderJpgSource = (image, size, width) => {
   return renderImageSource(image, size, width, 'jpg');
 };
 
-const Picture = ({image, className, pictureClassName}) => {
+const Picture = ({image, classNames, pictureClassNames}) => {
   return (
-    <picture className={[css.picture, ...pictureClassName].join(' ')}>
+    <picture className={[css.picture, ...pictureClassNames].join(' ')}>
       {haveWebpSource(image, 'lg') && renderWebpSource(image, 'lg', 900)}
       {haveWebpSource(image, 'md') && renderWebpSource(image, 'md', 600)}
       {haveWebpSource(image) && renderWebpSource(image)}
       {haveJpgSource(image, 'lg') && renderJpgSource(image, 'lg', 900)}
       {haveJpgSource(image, 'md') && renderJpgSource(image, 'md', 600)}
       {haveJpgSource(image) && renderJpgSource(image)}
-      {renderImage(image, className)}
+      {renderImage(image, classNames)}
     </picture>
   );
 };
 
 Picture.defaultProps = {
-  className: [],
+  classNames: [],
   image: 'not_found',
-  pictureClassName: [],
+  pictureClassNames: [],
 };
 
 Picture.propTypes = {
-  className: PropTypes.arrayOf(PropTypes.string).isRequired,
+  classNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   image: PropTypes.string.isRequired,
-  pictureClassName: PropTypes.arrayOf(PropTypes.string).isRequired,
+  pictureClassNames: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Picture;

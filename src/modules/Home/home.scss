@@ -5,6 +5,9 @@
   display: grid;
   font-size: 1rem;
   justify-content: stretch;
+  grid-row-gap: 0;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto 20rem 20rem;
   grid-template-areas:
     "header"
     "comic"
@@ -13,7 +16,7 @@
     "shop";
   min-height: 100%;
   width: 100%;
-  background: black();
+  background: grey();
 }
 
 .bg {
@@ -22,35 +25,36 @@
 
 .header {
   grid-area: header;
-  margin-top: 4rem;
-  height: 2erm;
-  background: lightcoral;
+  background: pink;
 }
 
 .comic {
   grid-area: comic;
-  height: 3em;
-  background: red;
-  overflow: hidden;
+  background: orange;
 }
 
 .art {
   grid-area: art;
-  height: auto;
-  background: green;
-  overflow: hidden;
+  background: teal;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
 }
 
 .social {
   grid-area: social;
-  height: 2rem;
-  background: gray;
-  overflow: hidden;
+  background: blue;
 }
 
 .shop {
-  grid-area: comic;
-  height: 2rem;
-  background: peru;
-  overflow: hidden;
+  grid-area: shop;
+  background: yellow;
+}
+
+.image {
+  display: flex;
+}
+
+.picture {
 }

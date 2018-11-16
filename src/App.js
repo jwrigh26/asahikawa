@@ -14,8 +14,10 @@ class App extends Component {
     return (
       <Navigation
         render={navigation => (
-          <div className={css.wrapper}>
-            <Content navigation={navigation} />
+          <div className={css.grid}>
+            <main className={css.main}>
+              <Content navigation={navigation} />
+            </main>
             <Footer navigation={navigation} />
             <Header navigation={navigation} />
           </div>
