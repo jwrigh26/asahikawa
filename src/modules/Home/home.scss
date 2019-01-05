@@ -12,18 +12,20 @@
     "header"
     "comic"
     "art"
-    "social"
+    "storyboards"
     "shop";
   min-height: 100%;
   width: 100%;
   background: grey(800);
+  color: white();
 }
 
 .header {
   grid-area: header;
+  padding-top: 3rem;
 }
 
-.comic {
+.comics {
   grid-area: comic;
 }
 
@@ -35,8 +37,8 @@
   align-content: center;
 }
 
-.social {
-  grid-area: social;
+.storyboards {
+  grid-area: storyboards;
 }
 
 .shop {

@@ -7,6 +7,7 @@ import {
   onBreakPointChange,
   removeMediQueries,
 } from './header.helper';
+import Menu from './Menu';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import Drawer from './Drawer';
@@ -71,7 +72,7 @@ class Header extends Component {
 
   render() {
     const {drawerPosition} = this.state;
-    const {classNames} = this.props;
+    const {classNames, navigation} = this.props;
     const {breakPoint: activeBreakPoint} = this.state.activeBreakPoint;
     const {breakPoint: mobileBreakPoint} = mqMobileLarge;
     return (
@@ -87,7 +88,9 @@ class Header extends Component {
             drawerPosition={drawerPosition}
             setDrawerPosition={this.setDrawerPosition}
             toggleDrawer={this.toggleDrawer}
-          />
+          >
+            <Menu navigation={navigation} toggleDrawer={this.toggleDrawer} />
+          </Drawer>
         )}
       </Fragment>
     );
