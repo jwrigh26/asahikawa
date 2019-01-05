@@ -6,15 +6,15 @@ import brand from 'assets/icons/brand.json';
 const Home = () => {
   return (
     <div className={css.home}>
-      <div className={css.header} />
-      <div className={css.comic}>
-        <Icon svg={brand} className={[]} />
-      </div>
-      <div className={css.art} />
-      <div className={css.social} />
-      <div className={css.shop} />
+      <div className={css.header}>Header</div>
+      <div className={css.comic}>Comic</div>
+      <div className={css.art}>Art</div>
+      <div className={css.social}>Social</div>
+      <div className={css.shop}>Shop</div>
     </div>
   );
 };
 
 export default Home;
+
+//  <Icon svg={brand} className={[]} />

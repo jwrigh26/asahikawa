@@ -2,5 +2,7 @@
   "label": "Menu",
   "width": "24",
   "height": "24",
-  "group": ["M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"]
+  "group": [
+    "M 0 6 L 0 8 L 24 8 L 24 6 Z M 0 12 L 0 14 L 24 14 L 24 12 Z M 0 18 L 0 20 L 24 20 L 24 18 Z "
+  ]
 }

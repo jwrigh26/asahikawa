@@ -11,11 +11,11 @@ const createPaths = group => {
   });
 };
 
-const Icon = ({className, fill, svg}) => {
+const Icon = ({classNames, fill, svg}) => {
   const {group, height, label, preserveAspectRatio, stroke, transform, width} = svg;
   return (
     <svg
-      className={`${className.join(' ')} ${css.icon}`}
+      className={`${classNames.join(' ')} ${css.icon}`}
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
@@ -39,7 +39,7 @@ const Icon = ({className, fill, svg}) => {
 };
 
 Icon.defaultProps = {
-  className: [],
+  classNames: [],
   fill: null,
   svg: {
     group: [missing],
@@ -53,7 +53,7 @@ Icon.defaultProps = {
 };
 
 Icon.propTypes = {
-  className: PropTypes.arrayOf(PropTypes.string),
+  classNames: PropTypes.arrayOf(PropTypes.string),
   fill: PropTypes.string,
   svg: PropTypes.object.isRequired,
 };

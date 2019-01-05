@@ -7,11 +7,11 @@ const handleClick = callback => () => {
 };
 
 const Button = props => {
-  const {onClick, disabled, children, className} = props;
+  const {onClick, disabled, children, classNames} = props;
 
   return (
     <button
-      className={[css.button, ...className].join(' ')}
+      className={[css.button, ...classNames].join(' ')}
       disabled={disabled}
       onClick={handleClick(onClick)}
     >
@@ -21,14 +21,14 @@ const Button = props => {
 };
 
 Button.defaultProps = {
-  className: [],
+  classNames: [],
   disabled: false,
   onClick: () => {},
 };
 
 Button.propTypes = {
   children: PropTypes.any.isRequired,
-  className: PropTypes.arrayOf(PropTypes.string).isRequired,
+  classNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };

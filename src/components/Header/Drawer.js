@@ -76,17 +76,17 @@ const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => 
         pose={pose}
       />
       <Box className={[css.drawer, hidden].join(' ')} initialPose={'closed'} key="box" pose={pose}>
-        {renderHeader()}
         {children}
       </Box>
       <Close
+        onClick={toggleDrawer}
         className={[css.close, hidden].join(' ')}
         initialPose={'closed'}
         key="close"
         pose={pose}
       >
-        <Button className={[css.closeButton]} onClick={toggleDrawer}>
-          <Icon svg={close} className={[css.closeIcon]} />
+        <Button classNames={[css.closeButton]}>
+          <Icon svg={close} classNames={[css.closeIcon]} />
         </Button>
       </Close>
     </div>

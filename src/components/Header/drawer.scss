@@ -24,7 +24,7 @@
 
 .drawer {
   align-items: center;
-  background: accent(50);
+  background: grey(800);
   background: linear-gradient(180deg, acent(50) 0%, acent(100) 100%);
   display: flex;
   flex-direction: column;
@@ -57,9 +57,9 @@
 
 .close {
   display: block;
-  height: 3rem;
+  height: 2.6rem;
   position: absolute;
-  top: 1.5rem;
+  top: 3rem;
   right: 75vw;
   width: 1.5rem;
   z-index: 10001;
@@ -70,8 +70,7 @@
 
   .closeIcon {
     color: grey(900);
-    height: 3rem;
-    width: 2.2rem;
+    height: inherit;
   }
 }
 

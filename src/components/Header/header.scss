@@ -2,24 +2,30 @@
 
 .navigation {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   height: 3rem;
   justify-content: space-between;
   left: 0;
   margin: 0;
+  padding-right: 12px;
   position: absolute;
   top: 0;
   width: 100vw;
-  background-color: aqua;
-
-  &_mobile {
-    background-color: acent();
-    margin: 0;
-  }
+  background-color: black(0.25);
 }
 
-.menuButton {
-  height: 3rem;
-  background: pink;
-  color: grey(900);
+.menu {
+  &__drawerButton {
+    background: transparent;
+  }
+
+  &__drawerIcon {
+    height: 2.4rem;
+    color: white();
+  }
+
+  &__mobileHeaderIcon {
+    color: white();
+  }
 }

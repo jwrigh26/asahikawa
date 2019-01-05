@@ -10,16 +10,17 @@ import {
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import Drawer from './Drawer';
+import brand from 'assets/icons/brand.json';
 import menu from 'assets/icons/menu.json';
 import css from './header.scss';
 
 class Header extends Component {
   static defaultProps = {
-    className: [],
+    classNames: [],
   };
 
   static propTypes = {
-    className: PropTypes.arrayOf(PropTypes.string).isRequired,
+    classNames: PropTypes.arrayOf(PropTypes.string).isRequired,
     navigation: PropTypes.object.isRequired,
   };
 
@@ -57,20 +58,25 @@ class Header extends Component {
 
   renderMobileNavigation = () => {
     return (
-      <Button onClick={this.toggleDrawer}>
-        <Icon svg={menu} className={[css.menuButton]} />
-      </Button>
+      <Fragment>
+        <Button classNames={[css.menu__drawerButton]} onClick={this.toggleDrawer}>
+          <Icon svg={brand} classNames={[css.menu__mobileHeaderIcon]} />
+        </Button>
+        <Button classNames={[css.menu__drawerButton]} onClick={this.toggleDrawer}>
+          <Icon svg={menu} classNames={[css.menu__drawerIcon]} />
+        </Button>
+      </Fragment>
     );
   };
 
   render() {
     const {drawerPosition} = this.state;
-    const {className} = this.props;
+    const {classNames} = this.props;
     const {breakPoint: activeBreakPoint} = this.state.activeBreakPoint;
     const {breakPoint: mobileBreakPoint} = mqMobileLarge;
     return (
       <Fragment>
-        <nav className={[css.navigation, ...className].join(' ')}>
+        <nav className={[css.navigation, ...classNames].join(' ')}>
           {activeBreakPoint > mobileBreakPoint && <Fragment />}
           {activeBreakPoint <= mobileBreakPoint && (
             <Fragment>{this.renderMobileNavigation()}</Fragment>

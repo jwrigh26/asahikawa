@@ -7,7 +7,7 @@
   justify-content: stretch;
   grid-row-gap: 0;
   grid-template-columns: auto;
-  grid-template-rows: auto auto auto 20rem 20rem;
+  grid-template-rows: repeat(5, minmax(20rem, auto));
   grid-template-areas:
     "header"
     "comic"
@@ -16,41 +16,33 @@
     "shop";
   min-height: 100%;
   width: 100%;
-  background: grey();
+  background: grey(800);
 }
 
 .header {
   grid-area: header;
-  background: pink;
 }
 
 .comic {
   grid-area: comic;
-  background: orange;
 }
 
 .art {
   grid-area: art;
-  background: teal;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   align-content: center;
 }
 
 .social {
   grid-area: social;
-  background: blue;
 }
 
 .shop {
   grid-area: shop;
-  background: yellow;
 }
 
 .image {
   display: flex;
-}
-
-.picture {
 }

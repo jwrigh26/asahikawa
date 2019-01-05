@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import css from './footer.scss';
 
 const Footer = ({className}) => {
-  return <div className={[css.footer, ...className].join(' ')} />;
+  return <div className={[css.footer, ...className].join(' ')}>Footer</div>;
 };
 
 Footer.defaultProps = {
