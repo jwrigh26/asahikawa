@@ -30,11 +30,19 @@
     width: 100%;
 
     a {
-      color: grey(300);
+      color: grey(200);
+      cursor: pointer;
+      display: block;
       font-weight: 400;
       padding-bottom: 1rem;
       text-decoration: none;
       width: 100%;
+      @include fadeinout;
+
+      &:hover,
+      &:focus {
+        color: accent();
+      }
     }
   }
 
@@ -50,4 +58,9 @@
 
 .selected {
   color: white() !important;
+
+  &:hover,
+  &:focus {
+    color: accent() !important;
+  }
 }

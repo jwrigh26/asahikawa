@@ -20,12 +20,20 @@
     background: transparent;
   }
 
+  &__link {
+    display: block;
+    height: 3rem;
+    padding: 0;
+    @include fadeinout;
+  }
+
   &__drawerIcon {
-    height: 2.2rem;
     color: white();
+    height: 2.2rem;
   }
 
   &__mobileHeaderIcon {
     color: white();
+    margin-left: -0.4rem;
   }
 }

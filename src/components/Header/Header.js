@@ -14,6 +14,7 @@ import Drawer from './Drawer';
 import brand from 'assets/icons/brand.json';
 import menu from 'assets/icons/menu.json';
 import css from './header.scss';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   static defaultProps = {
@@ -60,9 +61,9 @@ class Header extends Component {
   renderMobileNavigation = () => {
     return (
       <Fragment>
-        <Button classNames={[css.menu__drawerButton]} onClick={this.toggleDrawer}>
+        <Link className={css.menu__link} to="/">
           <Icon svg={brand} classNames={[css.menu__mobileHeaderIcon]} />
-        </Button>
+        </Link>
         <Button classNames={[css.menu__drawerButton]} onClick={this.toggleDrawer}>
           <Icon svg={menu} classNames={[css.menu__drawerIcon]} />
         </Button>

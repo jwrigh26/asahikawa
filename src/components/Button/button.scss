@@ -22,18 +22,15 @@
   padding: 0;
   user-select: none;
   will-change: transform;
-  opacity: 1;
+  @include fadeinout;
 
   &:disabled {
     @extend %border;
-    opacity: 0.5;
-    cursor: default;
   }
 
   &:hover,
   &:focus {
     @extend %border;
-    outline-color: transparent !important;
   }
 
   &:hover:not([disabled]) {
@@ -41,7 +38,6 @@
   }
 
   &:active:not([disabled]) {
-    @extend %border;
     outline-color: transparent !important;
     opacity: 1;
   }

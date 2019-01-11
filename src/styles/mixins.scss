@@ -1,0 +1,21 @@
+@mixin fadeinout {
+  opacity: 1;
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &:hover,
+  &:focus {
+    outline-color: transparent !important;
+  }
+
+  &:hover:not([disabled]) {
+    opacity: 0.75;
+  }
+
+  &:active:not([disabled]) {
+    outline-color: transparent !important;
+    opacity: 1;
+  }
+}
