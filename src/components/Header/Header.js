@@ -58,12 +58,16 @@ class Header extends Component {
     }));
   };
 
+  renderLogo = () => (
+    <Link className={css.menu__link} to="/">
+      <Icon svg={brand} classNames={[css.menu__mobileHeaderIcon]} />
+    </Link>
+  );
+
   renderMobileNavigation = () => {
     return (
       <Fragment>
-        <Link className={css.menu__link} to="/">
-          <Icon svg={brand} classNames={[css.menu__mobileHeaderIcon]} />
-        </Link>
+        {this.renderLogo()}
         <Button classNames={[css.menu__drawerButton]} onClick={this.toggleDrawer}>
           <Icon svg={menu} classNames={[css.menu__drawerIcon]} />
         </Button>
@@ -79,7 +83,12 @@ class Header extends Component {
     return (
       <Fragment>
         <nav className={[css.navigation, ...classNames].join(' ')}>
-          {activeBreakPoint > mobileBreakPoint && <Fragment />}
+          {activeBreakPoint > mobileBreakPoint && (
+            <section className={css.navigation__wrapper}>
+              {this.renderLogo()}
+              <Menu navigation={navigation} />
+            </section>
+          )}
           {activeBreakPoint <= mobileBreakPoint && (
             <Fragment>{this.renderMobileNavigation()}</Fragment>
           )}

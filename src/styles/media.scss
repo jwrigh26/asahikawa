@@ -26,6 +26,12 @@
   }
 }
 
+@mixin mq-laptop-med {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
 // 1440px and up
 @mixin mq-laptop-large {
   @media (min-width: 1440px) {

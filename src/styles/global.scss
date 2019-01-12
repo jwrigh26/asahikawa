@@ -8,6 +8,7 @@ body,
 #root {
   font-size: 100%;
   line-height: 1.37;
+  scroll-behavior: smooth;
 
   @include mq-mobile-medium {
     line-height: 1.25;

@@ -5,7 +5,6 @@ import css from './menu.scss';
 
 const Menu = ({navigation, toggleDrawer}) => {
   const {paths, rootPath} = navigation;
-  console.log(paths);
   return (
     <nav className={css.nav}>
       <span className={css.nav__title}>Menu</span>
@@ -15,10 +14,10 @@ const Menu = ({navigation, toggleDrawer}) => {
             <NavLink
               activeClassName={css.selected}
               to={`${rootPath}#${e.title}`}
-              onClick={toggleDrawer}
+              onClick={typeof toggleDrawer !== undefined ? toggleDrawer : undefined}
               location={{pathname: document.location.pathname + document.location.hash}}
             >
-              {e.title}
+              <span className={css.menu__item_title}>{e.title}</span>
             </NavLink>
           </li>
         ))}
@@ -27,9 +26,13 @@ const Menu = ({navigation, toggleDrawer}) => {
   );
 };
 
+Menu.defaultProps = {
+  toggleDrawer: undefined,
+};
+
 Menu.propTypes = {
   navigation: PropTypes.object.isRequired,
-  toggleDrawer: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func,
 };
 
 export default Menu;

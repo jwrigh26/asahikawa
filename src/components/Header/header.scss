@@ -1,18 +1,48 @@
 @import "styles/global.scss";
 
+%bar-height {
+  height: 3rem;
+
+  @include mq-tablet {
+    height: 3.5rem;
+  }
+}
+
 .navigation {
+  @extend %bar-height;
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  height: 3rem;
   justify-content: space-between;
   left: 0;
   margin: 0;
   padding-right: 12px;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
-  background-color: black(0.25);
+  background-color: grey(900);
+
+  &__wrapper {
+    @extend %bar-height;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 1vmin;
+
+    @include mq-laptop {
+      padding: 0 5vmin;
+    }
+
+    @include mq-laptop-med {
+      padding: 0 10vmin;
+    }
+
+    @include mq-laptop-large {
+      padding: 0 25vmin;
+    }
+  }
 }
 
 .menu {
@@ -21,10 +51,14 @@
   }
 
   &__link {
+    @extend %bar-height;
     display: block;
-    height: 3rem;
     padding: 0;
     @include fadeinout;
+
+    @include mq-tablet {
+      flex: 0 1 auto;
+    }
   }
 
   &__drawerIcon {

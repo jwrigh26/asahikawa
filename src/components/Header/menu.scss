@@ -6,14 +6,27 @@
   width: 100%;
   box-sizing: border-box;
   padding: 6rem 1rem 3rem;
+  position: relative;
   overflow-y: scroll;
+
+  @include mq-tablet {
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    width: max-content;
+  }
 
   &__title {
     color: white();
+    display: block;
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+
+    @include mq-tablet {
+      display: none;
+    }
   }
 }
 
@@ -24,17 +37,38 @@
   justify-content: flex-start;
   margin-top: 2rem;
 
+  @include mq-tablet {
+    height: 100%;
+    flex-direction: row;
+    margin-top: 0;
+  }
+
   &__item {
     border-bottom: 1px solid grey(500);
-    padding: 1rem 0;
+    height: 4rem;
+    padding-bottom: 1rem;
     width: 100%;
 
+    @include mq-tablet {
+      border-bottom: 0px;
+      height: 100%;
+      padding: 0 1rem 0 0;
+      width: max-content;
+    }
+
+    @include mq-laptop {
+      padding: 0 1rem 0;
+    }
+
     a {
+      align-items: flex-start;
       color: grey(200);
       cursor: pointer;
-      display: block;
+      display: flex;
+      flex-direction: column;
       font-weight: 400;
-      padding-bottom: 1rem;
+      justify-content: center;
+      height: 100%;
       text-decoration: none;
       width: 100%;
       @include fadeinout;
@@ -42,6 +76,23 @@
       &:hover,
       &:focus {
         color: accent();
+      }
+
+      @include mq-tablet {
+        padding-bottom: 0;
+        width: inherit;
+      }
+    }
+
+    &_title {
+      display: inline-block;
+
+      @include mq-tablet {
+        padding-top: 0.35rem;
+      }
+
+      @include mq-laptop {
+        font-size: 1.1rem;
       }
     }
   }
