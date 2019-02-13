@@ -99,7 +99,7 @@ class Header extends Component {
             setDrawerPosition={this.setDrawerPosition}
             toggleDrawer={this.toggleDrawer}
           >
-            <Menu navigation={navigation} toggleDrawer={this.toggleDrawer} />
+            <Menu isMobile={true} navigation={navigation} toggleDrawer={this.toggleDrawer} />
           </Drawer>
         )}
       </Fragment>

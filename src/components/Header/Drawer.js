@@ -12,13 +12,13 @@ const inTrans = {type: 'tween', duration: 300, ease: 'circIn'};
 const outTrans = {type: 'tween', duration: 425, ease: 'circOut'};
 const Box = posed.div({
   open: {
-    translateX: 0,
+    x: 0,
     transition: outTrans,
   },
 
   closed: {
     delay: 150,
-    translateX: '68vw',
+    x: '68vw',
     transition: inTrans,
   },
 });
@@ -26,13 +26,13 @@ const Box = posed.div({
 const Close = posed.div({
   open: {
     delay: 225,
-    translateX: 0,
+    x: 0,
     rotate: 0,
     opacity: 1,
     transition: outTrans,
   },
   closed: {
-    translateX: '81vw',
+    x: '81vw',
     rotate: 360,
     opacity: 0,
     transition: inTrans,
@@ -40,8 +40,8 @@ const Close = posed.div({
 });
 
 const Shade = posed.div({
-  open: {opacity: 1, transition: outTrans},
-  closed: {opacity: 0, delay: 150, transition: inTrans},
+  open: {opacity: 1, duration: 300},
+  closed: {opacity: 0, delay: 150, duration: 425},
 });
 
 const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => {
@@ -54,16 +54,16 @@ const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => 
     }
   };
 
-  const renderHeader = () => {
-    return (
-      <Fragment>
-        <div className={css.header}>
-          <Picture image="brand/AnthonyHoldenArt_Header" />
-        </div>
-        <div className={css.header_after} />
-      </Fragment>
-    );
-  };
+  // const renderHeader = () => {
+  //   return (
+  //     <Fragment>
+  //       <div className={css.header}>
+  //         <Picture image="brand/AnthonyHoldenArt_Header" />
+  //       </div>
+  //       <div className={css.header_after} />
+  //     </Fragment>
+  //   );
+  // };
 
   return (
     <div className={[css.wrapper, hidden].join(' ')}>

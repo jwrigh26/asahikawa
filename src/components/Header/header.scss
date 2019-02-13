@@ -36,11 +36,11 @@
     }
 
     @include mq-laptop-med {
-      padding: 0 10vmin;
+      padding: 0 8vmin;
     }
 
     @include mq-laptop-large {
-      padding: 0 25vmin;
+      padding: 0 10vmin;
     }
   }
 }
