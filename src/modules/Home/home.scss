@@ -6,43 +6,47 @@
   font-size: 1rem;
   justify-content: stretch;
   grid-row-gap: 0;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(5, minmax(20rem, auto));
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, auto);
   grid-template-areas:
-    "header"
-    "comic"
-    "art"
-    "storyboards"
-    "shop";
+    "jumbotron"
+    "comics"
+    "doodles"
+    "portfolio";
   min-height: 100%;
   width: 100%;
   background: grey(800);
   color: white();
 }
 
-.header {
-  grid-area: header;
+.jumbotron {
+  grid-area: jumbotron;
   padding-top: 3rem;
+  background: blue;
+
+  @include mq-tablet {
+    padding-top: 3.5rem;
+  }
 }
 
 .comics {
   grid-area: comic;
+  min-height: 20rem;
 }
 
-.art {
-  grid-area: art;
+.doodles {
+  grid-area: doodles;
   display: flex;
   justify-content: start;
   flex-direction: column;
   align-content: center;
+  min-height: 20rem;
 }
 
-.storyboards {
-  grid-area: storyboards;
-}
-
-.shop {
-  grid-area: shop;
+.portfolio {
+  grid-area: portfolio;
+  min-height: 20rem;
+  // height: minmax(20rem, auto);
 }
 
 .image {

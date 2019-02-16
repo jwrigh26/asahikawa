@@ -1,0 +1,26 @@
+@import "styles/global.scss";
+
+.preciousRascals {
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-items: stretch;
+  width: 100%;
+
+  @include mq-tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include mq-laptop {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &__panel {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+}

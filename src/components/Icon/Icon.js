@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
+import uuidv4 from 'uuid/v4';
 import css from './icon.scss';
 
 const missing = 'M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z';
 
 const createPaths = group => {
   return group.map(d => {
-    return <path d={d} key={uuid.v4()} />;
+    return <path d={d} key={uuidv4()} />;
   });
 };
 
@@ -33,7 +33,7 @@ const Icon = ({classNames, fill, svg}) => {
           {createPaths(group)}
         </g>
       )}
-      {group.length === 1 && <path fill={fill} d={group[0]} key={uuid.v4()} />}
+      {group.length === 1 && <path fill={fill} d={group[0]} key={uuidv4()} />}
     </svg>
   );
 };
