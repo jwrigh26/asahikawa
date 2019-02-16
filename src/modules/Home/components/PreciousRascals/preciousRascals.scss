@@ -24,3 +24,84 @@
     width: 100%;
   }
 }
+
+%text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: text(700);
+
+  @include mq-tablet {
+    font-size: 1rem;
+  }
+}
+
+.footer {
+  background: white();
+  box-sizing: border-box;
+  display: block;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  width: 100%;
+
+  @include mq-mobile-large {
+    padding: 0.5rem 1rem 0 1rem;
+  }
+
+  &__spacer {
+    border-top: 1px solid grey(200);
+    margin-top: 1rem;
+    padding: 0 0.5rem 1rem 0.5rem;
+
+    @include mq-mobile-large {
+      padding: 0 1rem 1rem 1rem;
+    }
+  }
+
+  &__caption {
+    @extend %text;
+    font-size: 1rem;
+  }
+
+  &__menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    &__leading {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    &__trailing {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.date {
+  @extend %text;
+  color: text(500);
+}
+
+.text {
+  @extend %text;
+}
+
+.link_inline {
+  @extend %text;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 2.75rem;
+  padding: 0 0 0 0.4rem;
+  text-decoration: none;
+  font-weight: 700;
+}

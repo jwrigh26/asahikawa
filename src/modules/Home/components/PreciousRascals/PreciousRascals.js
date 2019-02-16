@@ -1,17 +1,37 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Picture from 'components/Picture/Picture';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import css from './preciousRascals.scss';
 
 const PreciousRascals = ({images}) => {
   return (
-    <ul className={css.preciousRascals}>
-      {images.map(image => (
-        <li id={image.id} className={css.preciousRascals__panel}>
-          <Picture image={image.path} />
-        </li>
-      ))}
-    </ul>
+    <Fragment>
+      <ul className={css.preciousRascals}>
+        {images.map(image => (
+          <li id={image.id} className={css.preciousRascals__panel}>
+            <Picture image={image.path} />
+          </li>
+        ))}
+      </ul>
+      <div className={css.footer}>
+        <div className={css.footer__spacer} />
+        <span className={css.footer__caption}>
+          The drawing police are here, and they don't like your mermaid butt
+        </span>
+        <div className={css.footer__menu}>
+          <div className={css.footer__menu__leading}>
+            <span className={css.date}>FEB. 16 2019</span>
+          </div>
+          <div className={css.footer__menu__trailing}>
+            <p className={css.text}>More comics</p>
+            <Link className={css.link_inline} to={'/comics'}>
+              HERE!
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 

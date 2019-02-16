@@ -43,6 +43,9 @@ $text: (
   700: rgb(65, 65, 65),
   800: rgb(44, 44, 44)
 );
+@function text($value: "default") {
+  @return map-get($text, $value);
+}
 
 @function white($value: 1) {
   @return rgba(255, 255, 255, $value);

@@ -22,7 +22,7 @@
 .jumbotron {
   grid-area: jumbotron;
   padding-top: 3rem;
-  background: blue;
+  background: white();
 
   @include mq-tablet {
     padding-top: 3.5rem;
