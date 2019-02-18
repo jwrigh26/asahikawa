@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './footer.scss';
 
-const Footer = ({className}) => {
-  return <div className={[css.footer, ...className].join(' ')}>Footer</div>;
+const Footer = ({classNames}) => {
+  return <div className={[css.footer, ...classNames].join(' ')}>Footer</div>;
 };
 
 Footer.defaultProps = {
@@ -11,7 +11,7 @@ Footer.defaultProps = {
 };
 
 Footer.propTypes = {
-  className: PropTypes.arrayOf(PropTypes.string).isRequired,
+  classNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   navigation: PropTypes.object.isRequired,
 };
 

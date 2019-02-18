@@ -34,8 +34,8 @@ class App extends Component {
                   <Route render={() => <Redirect to={`${rootPath}`} />} />
                 </Switch>
               </main>
-              <Footer navigation={navigation} />
-              <Header navigation={navigation} />
+              <Footer classNames={[css.footer]} navigation={navigation} />
+              <Header classNames={[css.header]} navigation={navigation} />
             </div>
           );
         }}

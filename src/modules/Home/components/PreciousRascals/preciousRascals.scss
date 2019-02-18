@@ -39,21 +39,13 @@
   background: white();
   box-sizing: border-box;
   display: block;
-  padding: 0.5rem 0.5rem 0 0.5rem;
+  padding-top: 0.5rem;
   width: 100%;
-
-  @include mq-mobile-large {
-    padding: 0.5rem 1rem 0 1rem;
-  }
 
   &__spacer {
     border-top: 1px solid grey(200);
     margin-top: 1rem;
-    padding: 0 0.5rem 1rem 0.5rem;
-
-    @include mq-mobile-large {
-      padding: 0 1rem 1rem 1rem;
-    }
+    padding-bottom: 1rem;
   }
 
   &__caption {
@@ -96,12 +88,15 @@
 }
 
 .link_inline {
+  @include button();
   @extend %text;
   align-items: center;
   display: flex;
   flex-direction: row;
   height: 2.75rem;
-  padding: 0 0 0 0.4rem;
   text-decoration: none;
   font-weight: 700;
+  span {
+    padding-left: 0.4rem;
+  }
 }

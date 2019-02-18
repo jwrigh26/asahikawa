@@ -29,19 +29,6 @@
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
-    padding: 0 1vmin;
-
-    @include mq-tablet {
-      padding: 0 2vmin;
-    }
-
-    @include mq-laptop {
-      padding: 0 1vmin;
-    }
-
-    @include mq-laptop-med {
-      padding: 0 2vmin;
-    }
   }
 }
 
@@ -68,6 +55,6 @@
 
   &__mobileHeaderIcon {
     color: white();
-    margin-left: -0.4rem;
+    margin-left: -1rem;
   }
 }

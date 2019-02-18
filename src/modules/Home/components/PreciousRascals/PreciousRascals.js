@@ -21,13 +21,13 @@ const PreciousRascals = ({images}) => {
         </span>
         <div className={css.footer__menu}>
           <div className={css.footer__menu__leading}>
-            <span className={css.date}>FEB. 16 2019</span>
+            <Link className={css.link_inline} to={'/comics'}>
+              <p className={css.text}>More Precious Rascals</p>
+              <span>HERE!</span>
+            </Link>
           </div>
           <div className={css.footer__menu__trailing}>
-            <p className={css.text}>More comics</p>
-            <Link className={css.link_inline} to={'/comics'}>
-              HERE!
-            </Link>
+            <span className={css.date}>FEB. 16 2019</span>
           </div>
         </div>
       </div>

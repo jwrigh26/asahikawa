@@ -15,17 +15,17 @@
     "portfolio";
   min-height: 100%;
   width: 100%;
-  background: grey(800);
+  background: white();
   color: white();
 }
 
 .jumbotron {
-  grid-area: jumbotron;
-  padding-top: 3rem;
   background: white();
+  grid-area: jumbotron;
+  padding-top: 3.5rem;
 
   @include mq-tablet {
-    padding-top: 3.5rem;
+    padding-top: 4rem;
   }
 }
 

@@ -71,13 +71,7 @@
       height: 100%;
       text-decoration: none;
       width: 100%;
-      @include fadeinout;
-
-      &:hover,
-      &:focus {
-        color: accent();
-      }
-
+      @include button();
       @include mq-tablet {
         padding-bottom: 0;
         width: inherit;

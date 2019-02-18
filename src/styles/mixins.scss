@@ -1,3 +1,6 @@
+@import "styles/media.scss";
+@import "styles/palette.scss";
+
 @mixin fadeinout {
   opacity: 1;
   &:disabled {
@@ -17,5 +20,33 @@
   &:active:not([disabled]) {
     outline-color: transparent !important;
     opacity: 1;
+  }
+}
+
+@mixin window-horizontal-padding {
+  padding: 0 1rem;
+
+  @include mq-tablet {
+    padding: 0 2rem;
+  }
+
+  @include mq-laptop {
+    padding: 0 3rem;
+  }
+
+  @include mq-laptop-med {
+    padding: 0 8rem;
+  }
+
+  @include mq-laptop-large {
+    padding: 0 24 rem;
+  }
+}
+
+@mixin button {
+  @include fadeinout();
+  &:hover,
+  &:focus {
+    color: accent();
   }
 }
