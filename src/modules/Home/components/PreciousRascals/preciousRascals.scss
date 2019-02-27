@@ -1,6 +1,6 @@
-@import "styles/global.scss";
+@import "styles/globals.scss";
 
-.preciousRascals {
+.list {
   align-items: stretch;
   display: grid;
   grid-template-columns: 1fr;
@@ -18,7 +18,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  &__panel {
+  &__item {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -39,7 +39,7 @@
   background: white();
   box-sizing: border-box;
   display: block;
-  padding-top: 0.5rem;
+  padding: 0.5rem 0 0.25rem 0;
   width: 100%;
 
   &__spacer {

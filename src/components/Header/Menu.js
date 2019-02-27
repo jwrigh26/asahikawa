@@ -6,7 +6,9 @@ import css from './menu.scss';
 const Menu = ({isMobile, navigation, toggleDrawer}) => {
   const {paths} = navigation;
   console.log('IsMobile', isMobile);
-  const filteredPaths = !isMobile ? paths.filter(e => e.path !== navigation.rootPath) : paths;
+  const filteredPaths = !isMobile
+    ? paths.filter(e => e.path !== navigation.rootPath)
+    : paths;
   return (
     <nav className={css.nav}>
       <span className={css.nav__title}>Menu</span>
@@ -16,7 +18,9 @@ const Menu = ({isMobile, navigation, toggleDrawer}) => {
             <NavLink
               activeClassName={css.selected}
               to={`${e.path}`}
-              onClick={typeof toggleDrawer !== undefined ? toggleDrawer : undefined}
+              onClick={
+                typeof toggleDrawer !== undefined ? toggleDrawer : undefined
+              }
             >
               <span className={css.menu__item_title}>{e.title}</span>
             </NavLink>
@@ -41,16 +45,17 @@ Menu.propTypes = {
 export default Menu;
 
 // For anchors do the following
+/* eslint-disable */
 /*
 <li className={css.menu__item} key={e.key}>
-            <NavLink
-              activeClassName={css.selected}
-              to={`${rootPath}#${e.title}`}
-              onClick={typeof toggleDrawer !== undefined ? toggleDrawer : undefined}
-              location={{pathname: document.location.pathname + document.location.hash}}
-            >
-              <span className={css.menu__item_title}>{e.title}</span>
-            </NavLink>*/
+        <NavLink
+          activeClassName={css.selected}
+          to={`${rootPath}#${e.title}`}
+          onClick={typeof toggleDrawer !== undefined ? toggleDrawer : undefined}
+          location={{pathname: document.location.pathname + document.location.hash}}
+        >
+          <span className={css.menu__item_title}>{e.title}</span>
+        </NavLink>
 
 // Then in the page set the id
 /*
@@ -86,4 +91,5 @@ Content.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default Content;*/
+export default Content;
+*/

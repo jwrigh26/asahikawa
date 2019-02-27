@@ -12,7 +12,15 @@ const createPaths = group => {
 };
 
 const Icon = ({classNames, fill, svg}) => {
-  const {group, height, label, preserveAspectRatio, stroke, transform, width} = svg;
+  const {
+    group,
+    height,
+    label,
+    preserveAspectRatio,
+    stroke,
+    transform,
+    width,
+  } = svg;
   return (
     <svg
       className={`${classNames.join(' ')} ${css.icon}`}

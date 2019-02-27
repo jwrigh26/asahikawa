@@ -1,0 +1,88 @@
+@import "styles/globals.scss";
+
+.banner {
+  display: block;
+  flex: 0;
+  margin: 0;
+  padding: 0 2rem 0 0;
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-left: 0.5rem;
+    padding: 0;
+    color: highlight(50);
+  }
+}
+
+.list {
+  align-items: center;
+  box-sizing: border-box;
+  display: grid;
+  flex: 1;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  grid-column-gap: 0.5rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  height: 100%;
+  justify-items: center;
+  padding: 0.5rem 0;
+
+  &__item {
+    position: relative;
+  }
+}
+
+%overlay-effect {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  background-color: highlight();
+  overflow: hidden;
+}
+
+$picture-height: 10rem;
+
+.preciousrascals {
+  @include picture("assets/images/home/preciousrascals", 100%, $picture-height);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+
+  &__overlay {
+    @extend %overlay-effect;
+    background-color: highlight();
+  }
+}
+
+.fruitycutie {
+  @include picture("assets/images/home/fruitycutie", 100%, $picture-height);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__overlay {
+    @extend %overlay-effect;
+    background-color: $tri_blue;
+  }
+}
+
+.oneoffs {
+  @include picture("assets/images/home/oneoffs", 100%, $picture-height);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__overlay {
+    @extend %overlay-effect;
+    background-color: $tri_yellow;
+  }
+}

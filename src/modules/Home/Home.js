@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
-import Icon from 'components/Icon/Icon';
-import brand from 'assets/icons/brand.json';
+// import Icon from 'components/Icon/Icon';
+// import brand from 'assets/icons/brand.json';
+import Comics from './components/Comics/Comics';
 import PreciousRascals from './components/PreciousRascals/PreciousRascals';
+import {comics, preciousRascals} from './mock';
 import css from './home.scss';
 
-const Home = ({navigation}) => {
+const Home = () => {
   // console.log('paths', navigation.paths);
-  const {paths} = navigation;
+  // const {paths} = navigation;
   return (
     <main className={css.home}>
       <section className={css.jumbotron}>
-        <PreciousRascals
-          images={[
-            {id: uuidv4(), path: 'pr/pr_02162019_01'},
-            {id: uuidv4(), path: 'pr/pr_02162019_02'},
-            {id: uuidv4(), path: 'pr/pr_02162019_03'},
-            {id: uuidv4(), path: 'pr/pr_02162019_04'},
-          ]}
-        />
+        <PreciousRascals images={preciousRascals} />
       </section>
-      <section className={css.comics} />
+      <section className={css.comics}>
+        <Comics images={comics} />
+      </section>
       <section className={css.doodles} />
       <section className={css.portfolio} />
     </main>

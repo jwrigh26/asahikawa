@@ -5,8 +5,10 @@ export const drawerState = {
 };
 
 export const isDrawerOpen = pos => (pos === drawerState.open ? true : false);
-export const isDrawerHidden = pos => (pos === drawerState.hidden ? true : false);
-export const getDrawerPosition = pos => (isDrawerOpen(pos) ? drawerState.close : drawerState.open);
+export const isDrawerHidden = pos =>
+  pos === drawerState.hidden ? true : false;
+export const getDrawerPosition = pos =>
+  isDrawerOpen(pos) ? drawerState.close : drawerState.open;
 
 export const mqMobileMed = {
   breakPoint: 424,
@@ -52,7 +54,8 @@ export const onBreakPointChange = setActiveBreakPoint => queries => () => {
     return curr.query.matches ? curr : prev && prev.query.matches ? prev : null;
   });
   const name = activeQuery ? activeQuery.name : 'default';
-  const breakPoint = (activeQuery && activeQuery.breakPoint) || mediaQueries[3].breakPoint;
+  const breakPoint =
+    (activeQuery && activeQuery.breakPoint) || mediaQueries[3].breakPoint;
   setActiveBreakPoint({name, breakPoint});
 };
 

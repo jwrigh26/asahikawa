@@ -38,7 +38,10 @@ class Header extends Component {
   }
 
   componentWillUnmount() {
-    removeMediQueries(this.mediaQueryState.queries, this.mediaQueryState.listener);
+    removeMediQueries(
+      this.mediaQueryState.queries,
+      this.mediaQueryState.listener
+    );
   }
 
   toggleDrawer = () => {
@@ -68,7 +71,10 @@ class Header extends Component {
     return (
       <Fragment>
         {this.renderLogo()}
-        <Button classNames={[css.menu__drawerButton]} onClick={this.toggleDrawer}>
+        <Button
+          classNames={[css.menu__drawerButton]}
+          onClick={this.toggleDrawer}
+        >
           <Icon svg={menu} classNames={[css.menu__drawerIcon]} />
         </Button>
       </Fragment>
@@ -99,7 +105,11 @@ class Header extends Component {
             setDrawerPosition={this.setDrawerPosition}
             toggleDrawer={this.toggleDrawer}
           >
-            <Menu isMobile={true} navigation={navigation} toggleDrawer={this.toggleDrawer} />
+            <Menu
+              isMobile={true}
+              navigation={navigation}
+              toggleDrawer={this.toggleDrawer}
+            />
           </Drawer>
         )}
       </Fragment>

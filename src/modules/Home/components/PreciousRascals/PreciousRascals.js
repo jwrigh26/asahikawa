@@ -1,15 +1,15 @@
 import React, {Fragment} from 'react';
-import Picture from 'components/Picture/Picture';
 import PropTypes from 'prop-types';
+import Picture from 'components/Picture/Picture';
 import {Link} from 'react-router-dom';
 import css from './preciousRascals.scss';
 
 const PreciousRascals = ({images}) => {
   return (
     <Fragment>
-      <ul className={css.preciousRascals}>
+      <ul className={css.list}>
         {images.map(image => (
-          <li id={image.id} className={css.preciousRascals__panel}>
+          <li key={image.id} id={image.id} className={css.list__item}>
             <Picture image={image.path} />
           </li>
         ))}

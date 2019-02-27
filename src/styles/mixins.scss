@@ -27,15 +27,15 @@
   padding: 0 1rem;
 
   @include mq-tablet {
-    padding: 0 2rem;
+    padding: 0 4rem;
   }
 
   @include mq-laptop {
-    padding: 0 3rem;
+    padding: 0 6rem;
   }
 
   @include mq-laptop-med {
-    padding: 0 8rem;
+    padding: 0 12rem;
   }
 
   @include mq-laptop-large {

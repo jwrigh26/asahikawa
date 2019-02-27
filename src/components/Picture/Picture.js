@@ -48,7 +48,13 @@ const renderImageSource = (image, size, width, ext) => {
 
   const src1 = req(`./${image}-sm_1x.${ext}`);
   const src2 = req(`./${image}-sm_2x.${ext}`);
-  return <source srcSet={`${src1} 1x, ${src2} 2x`} type={`image/${ext}`} alt={`image-${image}`} />;
+  return (
+    <source
+      srcSet={`${src1} 1x, ${src2} 2x`}
+      type={`image/${ext}`}
+      alt={`image-${image}`}
+    />
+  );
 };
 
 const renderImage = (image, classNames) => {
@@ -60,7 +66,11 @@ const renderImage = (image, classNames) => {
     type: 'image/jpeg',
     alt: `image-${image}`,
   };
-  return srcSet ? <img srcSet={srcSet} sizes={sizes} {...innerProps} /> : <img {...innerProps} />;
+  return srcSet ? (
+    <img srcSet={srcSet} sizes={sizes} {...innerProps} />
+  ) : (
+    <img {...innerProps} />
+  );
 };
 
 // convenience methods for jpg and webp

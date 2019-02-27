@@ -1,4 +1,4 @@
-@import "styles/global.scss";
+@import "styles/globals.scss";
 
 .home {
   align-items: stretch;
@@ -20,6 +20,7 @@
 }
 
 .jumbotron {
+  @include window-horizontal-padding();
   background: white();
   grid-area: jumbotron;
   padding-top: 3.5rem;
@@ -30,11 +31,19 @@
 }
 
 .comics {
-  grid-area: comic;
-  min-height: 20rem;
+  @include window-horizontal-padding();
+  align-items: center;
+  background-color: accent();
+  background-image: linear-gradient(to right, accent(), highlight(800));
+  display: flex;
+  flex-direction: row;
+  grid-area: comics;
+  justify-content: space-between;
+  height: auto;
 }
 
 .doodles {
+  @include window-horizontal-padding();
   grid-area: doodles;
   display: flex;
   justify-content: start;
@@ -44,6 +53,7 @@
 }
 
 .portfolio {
+  @include window-horizontal-padding();
   grid-area: portfolio;
   min-height: 20rem;
   // height: minmax(20rem, auto);

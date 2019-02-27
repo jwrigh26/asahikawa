@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import posed from 'react-pose';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
-import Picture from 'components/Picture/Picture';
+// import Picture from 'components/Picture/Picture';
 import close from 'assets/icons/close.json';
 import {drawerState, isDrawerHidden, isDrawerOpen} from './header.helper';
 import css from './drawer.scss';
@@ -44,7 +44,12 @@ const Shade = posed.div({
   closed: {opacity: 0, delay: 150, duration: 425},
 });
 
-const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => {
+const Drawer = ({
+  children,
+  drawerPosition,
+  setDrawerPosition,
+  toggleDrawer,
+}) => {
   const hidden = isDrawerHidden(drawerPosition) ? css.hidden : '';
   const pose = isDrawerOpen(drawerPosition) ? 'open' : 'closed';
 
@@ -75,7 +80,12 @@ const Drawer = ({children, drawerPosition, setDrawerPosition, toggleDrawer}) => 
         onPoseComplete={handlePoseComplete(drawerPosition, setDrawerPosition)}
         pose={pose}
       />
-      <Box className={[css.drawer, hidden].join(' ')} initialPose={'closed'} key="box" pose={pose}>
+      <Box
+        className={[css.drawer, hidden].join(' ')}
+        initialPose={'closed'}
+        key="box"
+        pose={pose}
+      >
         {children}
       </Box>
       <Close

@@ -1,4 +1,4 @@
-@import "styles/global.scss";
+@import "styles/globals.scss";
 
 html,
 body,
@@ -21,7 +21,6 @@ body,
 
 .main {
   grid-area: main;
-  @include window-horizontal-padding();
 }
 
 .footer {
