@@ -10,6 +10,7 @@ import {
 import Menu from './Menu';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import DecorLine from 'components/DecorLine/DecorLine';
 import Drawer from './Drawer';
 import brand from 'assets/icons/brand.json';
 import menu from 'assets/icons/menu.json';
@@ -98,6 +99,7 @@ class Header extends Component {
           {activeBreakPoint <= mobileBreakPoint && (
             <Fragment>{this.renderMobileNavigation()}</Fragment>
           )}
+          <DecorLine style="grey" />
         </nav>
         {activeBreakPoint <= mobileBreakPoint && (
           <Drawer

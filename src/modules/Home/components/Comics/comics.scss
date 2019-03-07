@@ -2,21 +2,32 @@
 
 .banner {
   display: block;
-  flex: 0;
+  flex: 1;
   margin: 0;
-  padding: 0 2rem 0 0;
+  padding: 0 1rem 0 0;
   &__title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
+    letter-spacing: 0.1rem;
+    line-height: 1;
     margin: 0;
-    padding: 0;
+    padding: 1rem 0 0 0;
+
+    @include mq-laptop {
+      font-size: 4rem;
+      line-height: 1.25;
+      padding: 0;
+    }
   }
 
   &__subtitle {
     margin: 0;
-    margin-left: 0.5rem;
+    margin-left: 0.3rem;
     padding: 0;
     color: highlight(50);
+    @include mq-laptop {
+      margin-left: 0.5rem;
+    }
   }
 }
 
@@ -24,19 +35,52 @@
   align-items: center;
   box-sizing: border-box;
   display: grid;
-  flex: 1;
-  grid-auto-columns: 1fr;
-  grid-auto-flow: column;
-  grid-column-gap: 0.5rem;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  flex: 3;
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 0;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
   height: 100%;
   justify-items: center;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
 
   &__item {
     position: relative;
   }
+
+  @include mq-tablet {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-column-gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+@mixin caption-style {
+  box-sizing: border-box;
+  color: white();
+  font-size: 1rem;
+  left: 0;
+  letter-spacing: 0.05rem;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  will-change: transform;
+  text-transform: uppercase;
+  transform: translate(0, -100%);
+  top: 100%;
+  width: 100%;
+
+  @include mq-laptop-med {
+    font-size: 1.25rem;
+  }
+}
+
+%comic-style {
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
 }
 
 %overlay-effect {
@@ -51,38 +95,96 @@
   overflow: hidden;
 }
 
-$picture-height: 10rem;
+$picture-height: 15rem;
+@mixin picture-height {
+  height: 15rem;
+  @include mq-tablet {
+    height: 10rem;
+  }
+}
+
+@mixin leading-radius {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  @include mq-tablet {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@mixin trailing-radius {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  @include mq-tablet {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
 
 .preciousrascals {
   @include picture("assets/images/home/preciousrascals", 100%, $picture-height);
-  background-size: cover;
-  background-repeat: no-repeat;
-  box-sizing: border-box;
+  @extend %comic-style;
+  @include leading-radius();
+  @include picture-height();
+
+  &__caption {
+    @include caption-style();
+    background-color: $tri_blue;
+    @include mq-tablet {
+      border-bottom-left-radius: 0.5rem;
+    }
+  }
 
   &__overlay {
     @extend %overlay-effect;
-    background-color: highlight();
+    background-color: $tri_blue;
+    @include leading-radius();
   }
 }
 
 .fruitycutie {
   @include picture("assets/images/home/fruitycutie", 100%, $picture-height);
-  background-size: cover;
-  background-repeat: no-repeat;
+  @extend %comic-style;
+  @include picture-height();
+
+  &__caption {
+    @include caption-style();
+    background-color: $tri_blue;
+    background-color: highlight();
+  }
 
   &__overlay {
     @extend %overlay-effect;
     background-color: $tri_blue;
+    background-color: highlight();
   }
 }
 
 .oneoffs {
   @include picture("assets/images/home/oneoffs", 100%, $picture-height);
-  background-size: cover;
-  background-repeat: no-repeat;
+  @extend %comic-style;
+  @include trailing-radius();
+  @include picture-height();
+
+  &__caption {
+    @include caption-style();
+    background-color: $tri_yellow;
+    color: text(900);
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    @include mq-tablet {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0.5rem;
+    }
+  }
 
   &__overlay {
     @extend %overlay-effect;
     background-color: $tri_yellow;
+    @include trailing-radius();
   }
 }

@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import Picture from 'components/Picture/Picture';
 import css from './comics.scss';
 
 const Comics = ({images}) => {
@@ -18,6 +17,7 @@ const Comics = ({images}) => {
             className={[css.list__item, image.cssImage].join(' ')}
           >
             <span className={image.cssOverlay} />
+            <span className={image.cssCaption}>{image.caption}</span>
           </li>
         ))}
       </ul>

@@ -5,7 +5,6 @@ import css from './menu.scss';
 
 const Menu = ({isMobile, navigation, toggleDrawer}) => {
   const {paths} = navigation;
-  console.log('IsMobile', isMobile);
   const filteredPaths = !isMobile
     ? paths.filter(e => e.path !== navigation.rootPath)
     : paths;

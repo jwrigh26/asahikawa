@@ -35,32 +35,6 @@ $desire-d8: rgb(64, 14, 25);
 $desire-d9: rgb(43, 9, 17);
 $desire-d10: rgb(22, 5, 9);
 
-// Text
-$text: (
-  default: $davy_grey,
-  48: rgb(233, 233, 233),
-  50: rgb(212, 212, 212),
-  100: rgb(191, 191, 191),
-  200: rgb(170, 170, 170),
-  300: rgb(149, 149, 149),
-  400: rgb(128, 128, 128),
-  500: rgb(107, 107, 107),
-  600: rgb(86, 86, 86),
-  700: rgb(65, 65, 65),
-  800: rgb(44, 44, 44)
-);
-@function text($value: "default") {
-  @return map-get($text, $value);
-}
-
-@function white($value: 1) {
-  @return rgba(255, 255, 255, $value);
-}
-
-@function black($value: 1) {
-  @return rgba(0, 0, 0, $value);
-}
-
 $accent: (
   default: $desire,
   48: $desire-d1,
@@ -76,6 +50,23 @@ $accent: (
 );
 @function accent($value: "default") {
   @return map-get($accent, $value);
+}
+
+$highlight: (
+  default: $desire,
+  48: $desire-l1,
+  50: $desire-l2,
+  100: $desire-l3,
+  200: $desire-l4,
+  300: $desire-l5,
+  400: $desire-l6,
+  500: $desire-l7,
+  600: $desire-l8,
+  700: $desire-l9,
+  800: $desire-l10
+);
+@function highlight($value: "default") {
+  @return map-get($highlight, $value);
 }
 
 $grey: (
@@ -101,19 +92,29 @@ $grey: (
   @return map-get($grey, $value);
 }
 
-$highlight: (
-  default: $desire,
-  48: $desire-l1,
-  50: $desire-l2,
-  100: $desire-l3,
-  200: $desire-l4,
-  300: $desire-l5,
-  400: $desire-l6,
-  500: $desire-l7,
-  600: $desire-l8,
-  700: $desire-l9,
-  800: $desire-l10
+// Text
+$text: (
+  default: $davy_grey,
+  48: rgb(233, 233, 233),
+  50: rgb(212, 212, 212),
+  100: rgb(191, 191, 191),
+  200: rgb(170, 170, 170),
+  300: rgb(149, 149, 149),
+  400: rgb(128, 128, 128),
+  500: rgb(107, 107, 107),
+  600: rgb(86, 86, 86),
+  700: rgb(65, 65, 65),
+  800: rgb(44, 44, 44),
+  900: rgb(23, 23, 23)
 );
-@function highlight($value: "default") {
-  @return map-get($highlight, $value);
+@function text($value: "default") {
+  @return map-get($text, $value);
+}
+
+@function white($value: 1) {
+  @return rgba(255, 255, 255, $value);
+}
+
+@function black($value: 1) {
+  @return rgba(0, 0, 0, $value);
 }

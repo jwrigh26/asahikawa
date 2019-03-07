@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuidv4 from 'uuid/v4';
+import DecorLine from 'components/DecorLine/DecorLine';
 // import Icon from 'components/Icon/Icon';
 // import brand from 'assets/icons/brand.json';
 import Comics from './components/Comics/Comics';
+import Doodles from './components/Doodles/Doodles';
 import PreciousRascals from './components/PreciousRascals/PreciousRascals';
-import {comics, preciousRascals} from './mock';
+import {comics, doodles, preciousRascals} from './mock';
 import css from './home.scss';
 
 const Home = () => {
@@ -13,13 +14,16 @@ const Home = () => {
   // const {paths} = navigation;
   return (
     <main className={css.home}>
-      <section className={css.jumbotron}>
+      {/* <section className={css.jumbotron}>
         <PreciousRascals images={preciousRascals} />
       </section>
       <section className={css.comics}>
         <Comics images={comics} />
+        <DecorLine />
+      </section> */}
+      <section className={css.doodles}>
+        <Doodles images={doodles} />
       </section>
-      <section className={css.doodles} />
       <section className={css.portfolio} />
     </main>
   );
